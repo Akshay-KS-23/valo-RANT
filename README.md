@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Valorant Roast Prototype 🔥  
+A fun web application that fetches a player’s Valorant statistics and generates personalized “roasts” based on their performance.  
+Built using **Next.js**, **Node.js**, and the **Riot Games API**.
 
-## Getting Started
+This project is currently a functional prototype and is being developed as part of a request for Riot API access for Valorant Match endpoints.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features (Prototype Stage)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### ✔️ Enter a Riot ID (Name#Tag)  
+The app uses the global **Account-V1** endpoint to convert Riot ID → PUUID.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### ✔️ Secure Backend API (Next.js Route Handler)  
+All Riot API calls happen **server-side**, ensuring the API key is never exposed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ✔️ Roast Generator  
+Based on available stats (or mock stats), the app produces fun, rule-based roast lines.
 
-## Learn More
+### ✔️ Riot Match API Integration (Pending Approval)  
+The app is structured to fetch:
+- Recent match history  
+- Match details  
+- KDA, ACS, winrate, clutches, agent usage  
+- And more  
 
-To learn more about Next.js, take a look at the following resources:
+Match data is temporarily mocked until Riot grants access.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
 
-## Deploy on Vercel
+- **Next.js 14+ (App Router)**
+- **React**
+- **Node.js**
+- **Riot Games API**
+- **Serverless API Routes**
+- **TailwindCSS** (planned)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔒 Environment Variables
+
+Your `.env.local` file should look like:
+
+```env
+RIOT_API_KEY=RGAPI-your-key-here
+
+# Global routing for Account-V1 API
+RIOT_ACCOUNT_REGION=asia
+
+# Shard routing for Valorant Match APIs
+RIOT_VAL_REGION=ap
+
+MATCH_FETCH_COUNT=5
